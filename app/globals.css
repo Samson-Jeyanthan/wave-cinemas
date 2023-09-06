@@ -1,27 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.heroContainer {
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 0 6rem 6rem;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  color: white;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+.heroContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      180deg,
+      rgba(0, 0, 0, 0.1) 30%,
+      rgb(14, 14, 14) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 1%);
+  z-index: 2;
+}
+
+.cardContainer {
+  position: relative;
+  min-height: 19rem;
+  min-width: 13rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cardContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 50%, rgb(7, 7, 7) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 1%);
+  z-index: 2;
+}
+
+.primaryBtn {
+  @apply flex gap-4 items-center justify-center px-6 py-3 rounded-sm bg-yellow-500 text-black text-lg;
+}
+
+.secondaryBtn {
+  @apply flex gap-4 items-center justify-center px-6 py-3 rounded-sm bg-transparent text-slate-100 text-lg border-2 border-white;
 }
